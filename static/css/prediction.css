@@ -38,7 +38,7 @@ header {
     font-weight: 600;
     position: absolute;
     top: 50%;
-    left: 20%;
+    left: 10%;
     transform: translateY(-50%); /* Center the text horizontally and vertically */
     font-size: 32px;
     /* font-weight: bold; */

@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Fake News Detector",
+    "version": "1.0",
+    "description": "Analyze articles to detect if they are fake or real.",
+    "icons": {
+      "128": "icon.png"
+    },
+    "permissions": ["activeTab"],
+    "host_permissions": ["http://127.0.0.1:5000/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    }
+  }
+  

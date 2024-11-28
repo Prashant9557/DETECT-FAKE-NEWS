@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+    <!-- Correct use of url_for to load the static file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo Section -->
+        <div class="logo">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Investigative News Logo">
+        </div>
+      
+        <!-- Navigation Menu -->
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('home') }}" class="navbar-button">HOME</a></li>
+            <li><a href="{{ url_for('about') }}" class="navbar-button">ABOUT US</a></li>
+            <li><a href="{{ url_for('prediction') }}" class="navbar-button">PREDICTION</a></li>
+            <li><a href="{{ url_for('contact') }}" class="navbar-button">CONTACT US</a></li>
+          </ul>
+        </nav>
+      
+        <!-- 3D Animated Text in the Center of the Navbar -->
+        <div class="nav-center">
+            Examining Article for Truth...
+        </div>
+      </header>
+    
+
+      <main>
+        <div class="hero-section" 
+             style="background-image: url('{{ url_for('static', filename='background3.png') }}'); 
+                    background-size: cover; 
+                    background-position: center 20%; 
+                    height: 80vh;">
+            <div class="quote-text">
+                <h1>"This is the place where you can uncover the truth and be saved from this world of lies."</h1>
+                <p>Stay informed. Stay safe. Let us help you fight against misinformation.</p>
+            </div>
+        </div>
+    
+        <section class="info-section">
+            <div class="info-box">
+                <h2>FAKE NEWS</h2>
+                <p>
+                    Fake news refers to false or misleading information presented as news, often with the intent to deceive. 
+                    It spreads misinformation and can influence public opinion or decision-making.
+                    Our platform uses advanced algorithms to help identify and combat fake news effectively.
+                </p>
+            </div>
+            <div class="info-box">
+                <h2>TRUE NEWS</h2>
+                <p>
+                    True news provides accurate, fact-checked, and verified information based on reliable sources. It ensures that the audience 
+                    is well-informed and can trust the content presented. Always cross-reference facts and stay aware of the credibility of your sources.
+                </p>
+            </div>
+        </section>
+        <section class="fake-news-quiz-section">
+            <h2 class="section-heading">Test Your Fake News Knowledge</h2>
+            <div class="quiz-container">
+                <form class="quiz-form" id="quiz-form">
+                    <div class="quiz-question">
+                        <p class="question">1. Which of the following is a reliable source of news?</p>
+                        <label>
+                            <input type="radio" name="question1" value="a">
+                            a) A social media post from a random account
+                        </label>
+                        <label>
+                            <input type="radio" name="question1" value="b">
+                            b) A verified news organization like BBC, Reuters
+                        </label>
+                        <label>
+                            <input type="radio" name="question1" value="c">
+                            c) An anonymous blog post
+                        </label>
+                    </div>
+    
+                    <div class="quiz-question">
+                        <p class="question">2. What should you do if you encounter a sensational news headline?</p>
+                        <label>
+                            <input type="radio" name="question2" value="a">
+                            a) Immediately share it with your friends
+                        </label>
+                        <label>
+                            <input type="radio" name="question2" value="b">
+                            b) Check the source and verify the information
+                        </label>
+                        <label>
+                            <input type="radio" name="question2" value="c">
+                            c) Ignore it completely
+                        </label>
+                    </div>
+    
+                    <div class="quiz-question">
+                        <p class="question">3. Which of these signs can indicate that news might be fake?</p>
+                        <label>
+                            <input type="radio" name="question3" value="a">
+                            a) The story lacks evidence and citations
+                        </label>
+                        <label>
+                            <input type="radio" name="question3" value="b">
+                            b) The article includes emotional and sensational language
+                        </label>
+                        <label>
+                            <input type="radio" name="question3" value="c">
+                            c) Both a and b
+                        </label>
+                    </div>
+    
+                    <button type="button" class="submit-quiz-btn" onclick="checkAnswers()">Submit Quiz</button>
+                </form>
+            </div>
+            
+            <!-- Answer Display Section -->
+            <div id="answer-section" style="display:none; margin-top: 30px;">
+                <h3 style="color: #fff;">Your Results:</h3>
+                <ul id="answer-list" style="list-style-type: none; padding-left: 0;"></ul>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Function to check the answers after quiz submission
+        function checkAnswers() {
+            // Define the correct answers for each question
+            const correctAnswers = {
+                question1: 'b',  // Correct answer for question 1
+                question2: 'b',  // Correct answer for question 2
+                question3: 'c',  // Correct answer for question 3
+            };
+    
+            // Store the user's answers
+            let userAnswers = {
+                question1: getSelectedAnswer('question1'),
+                question2: getSelectedAnswer('question2'),
+                question3: getSelectedAnswer('question3'),
+            };
+    
+            // Display the answer results
+            const answerSection = document.getElementById('answer-section');
+            const answerList = document.getElementById('answer-list');
+            
+            answerList.innerHTML = ''; // Clear previous results
+    
+            for (let question in correctAnswers) {
+                let listItem = document.createElement('li');
+                let userAnswer = userAnswers[question] || 'No answer selected';
+                let result = userAnswer === correctAnswers[question] ? 'Correct' : 'Incorrect';
+                let correctAnswerText = getAnswerText(correctAnswers[question]);
+    
+                listItem.innerHTML = `<strong>Question ${question.charAt(question.length - 1)}:</strong> 
+                                      Your answer: <span style="color:${result === 'Correct' ? 'green' : 'red'}">${userAnswer}</span> - ${result}
+                                      <br> <span style="color: #4caf50;">Correct Answer: ${correctAnswerText}</span>`;
+                answerList.appendChild(listItem);
+            }
+    
+            // Show the answer section
+            answerSection.style.display = 'block';
+        }
+    
+        // Helper function to get the selected answer for each question
+        function getSelectedAnswer(questionName) {
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            return selectedOption ? selectedOption.value : null;
+        }
+    
+        // Helper function to get the answer text from the correct answer value
+        function getAnswerText(answer) {
+            const answers = {
+                a: 'A social media post from a random account',
+                b: 'A verified news organization like BBC, Reuters',
+                c: 'Both a and b',
+            };
+    
+            return answers[answer] || 'No answer available';
+        }
+    </script>
+    
+    <footer>
+        <p>© 2024 Fake News Detector. All rights reserved.</p>
+    </footer>
+
+    <!-- Load the JavaScript file correctly -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

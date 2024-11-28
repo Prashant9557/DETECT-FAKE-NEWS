@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/prediction.css') }}" />
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+  </style>
+  </head>
+  <body>
+    <header>
+      <!-- Logo Section -->
+      <div class="logo">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Investigative News Logo">
+      </div>
+      
+      <!-- Centered Animated Text (Optional) -->
+      <div class="nav-center">
+        Checking Credibility, Please Wait...
+      </div>
+  
+      <!-- Navigation Menu -->
+      <nav>
+          <ul>
+              <li><a href="{{ url_for('home') }}" class="navbar-button">HOME</a></li>
+              <li><a href="{{ url_for('about') }}" class="navbar-button">ABOUT US</a></li>
+              <li><a href="{{ url_for('prediction') }}" class="navbar-button">PREDICTION</a></li>
+              <li><a href="{{ url_for('contact') }}" class="navbar-button">CONTACT US</a></li>
+          </ul>
+      </nav>
+  </header>
+    <main>
+      <div class="hero-section">
+        <h1>Fake News Prediction</h1>
+        <p>Enter the article link below to check if it's real or fake.</p>
+        
+        <!-- Input field for the article URL -->
+        <input
+          type="text"
+          id="article-url"
+          class="input-field"
+          placeholder="Enter news article link"
+          required
+        />
+        <button class="submit-btn">PREDICT</button>
+
+        <!-- Section for dynamic result display -->
+        <div class="result-section" style="display: none;">
+          <p><strong>Prediction:</strong> <span id="prediction-result"></span></p>
+          <p><strong>Confidence:</strong> <span id="confidence-score"></span>%</p>
+          <canvas id="confidenceChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>© 2024 Fake News Detector. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

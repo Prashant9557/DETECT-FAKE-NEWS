@@ -1,0 +1,96 @@
+<!-- prediction_result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 1));
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .result-box {
+            text-align: center;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px solid #4caf50;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.5);
+            width: 400px;
+        }
+
+        .result-box h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .true-result {
+            color: #4caf50;
+            text-shadow: 0 0 30px rgba(76, 255, 80, 0.8);
+        }
+
+        .fake-result {
+            color: #f44336;
+            text-shadow: 0 0 30px rgba(255, 68, 68, 0.8);
+        }
+
+        .confidence {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .error-message {
+            font-size: 16px;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #000;
+            background: #4caf50;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(81, 200, 132, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        {% if prediction %}
+            <h1 class="{{ 'true-result' if prediction == 'Real' else 'fake-result' }}">
+                {{ prediction }}
+            </h1>
+            <p class="confidence">Confidence Score: {{ confidence }}%</p>
+        {% endif %}
+        {% if message %}
+            <p class="error-message">{{ message }}</p>
+        {% endif %}
+        <a href="{{ url_for('home') }}" class="back-btn">Go Back</a>
+    </div>
+</body>
+</html>

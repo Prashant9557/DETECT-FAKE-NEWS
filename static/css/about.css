@@ -1,0 +1,252 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height for layout */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Flexbox layout for body */
+    min-height: 100vh; /* Full viewport height */
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* Header Navigation */
+header {
+    display: flex;
+    justify-content: space-between; /* Spread content between left and right */
+    align-items: center; /* Align items vertically */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px #4caf50; /* Green shadow effect */
+    position: relative;
+}
+
+/* Positioning the Navbar Centered Text */
+.nav-center {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%); /* Center the text horizontally and vertically */
+    font-size: 32px;
+    /* font-weight: bold; */
+    color: #deeedf; /* Light green text */
+    /* text-shadow: 0 0 5px #fff, 0 0 15px #4caf50, 0 0 30px #81c784; */
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+
+/* Navbar Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Space between menu items */
+    margin: 0;
+}
+
+/* Navbar Button Styling */
+.navbar-button {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(76, 175, 80, 0.2); /* Light green with opacity */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #4caf50;
+    background: rgba(76, 175, 80, 0.3); /* Match the info-box color */
+}
+
+.navbar-button:hover {
+    background-color: rgba(76, 175, 80, 0.4); /* Slightly darker green on hover */
+    color: #000;
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 0 30px #81c784; /* Brighter shadow on hover */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Default text color */
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s; /* Smooth transition for color */
+}
+
+/* Menu Item Hover Effect */
+nav ul li a:hover {
+    color: #4caf50; /* Change color to green on hover */
+}
+
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Default size */
+    width: auto;
+    border-radius: 8px; /* Rounded edges */
+    box-shadow: 0 0 10px #4caf50; /* Green shadow for effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for scaling and shadow */
+}
+
+.logo img:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+    box-shadow: 0 0 20px #81c784; /* Brighter shadow when hovered */
+}
+
+
+
+
+
+
+
+/* Hover effect for navbar button */
+
+
+
+
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    margin-top: 20px;
+    font-family: 'Lexend', sans-serif;
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%; /* Full width */
+    text-align: center; /* Align text to the left */
+    color: #fff;
+    padding: 60px 20px;
+    display: flex; /* Apply flexbox layout */
+     /* Align content to the left */
+    align-items: center; /* Vertically center the content */
+    font-weight: 500;
+}
+
+
+
+.hero-content h1 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+   
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+    
+}
+
+.hero-content p {
+    width: 100%;
+    font-family: 'Lexend', sans-serif;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #ddd;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+    
+}
+
+/* Mission and Story Section */
+.mission, .story {
+    margin-top: 20px;
+    font-family: 'Lexend', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 40px 30px;
+    gap: 30px;
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%
+    /* background-color: #29bb3d; Change background color to black */
+    color: #fff; /* Ensure text is visible on black background */
+}
+
+.mission:nth-child(even), .story:nth-child(even) {
+    margin-top: 20px;
+ /* Background remains black */
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%
+}
+
+.mission .text, .story .text, 
+.mission .image, .story .image {
+    font-family: 'Lexend', sans-serif;
+    flex: 1;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+    max-width: 50%;
+}
+
+/* Text Section Styles */
+.mission .text, .story .text {
+    font-family: 'Lexend', sans-serif;
+    padding-right: 20px;
+}
+
+.mission .text h2, .story .text h2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 2rem; /* Adjust text size */
+    text-align: center; /* Center the heading */
+}
+
+.mission .text p, .story .text p {
+    font-family: 'Lexend', sans-serif;
+    text-justify: justify;
+    font-size: 1.8rem; /* Adjust paragraph text size */
+    text-align: center; /* Center the text */
+}
+
+/* Image Section Styles */
+.mission .image img {
+    width: 80vh;
+    height: 50vh; /* Adjust the height of the image */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 80px; /* Add margin to the right */
+}
+.story .image img {
+    width: 80vh;
+    height: 50vh; /* Adjust the height of the image */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 50px;
+     /* Add margin to the right */
+}
+
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #4caf50;
+    box-shadow: 0 0 20px #4caf50;
+    width: 100%;
+}

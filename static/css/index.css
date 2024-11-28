@@ -1,0 +1,394 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height for layout */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Flexbox layout for body */
+    min-height: 100vh; /* Full viewport height */
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+
+/* Header Navigation */
+header {
+    display: flex;
+    justify-content: space-between; /* Spread content between left and right */
+    align-items: center; /* Align items vertically */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px #4caf50;
+    position: relative;
+}
+
+/* Create a container for the animated text */
+.nav-center {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%); /* Center the text horizontally and vertically */
+    font-size: 32px;
+    color: #e3eee3;
+    text-shadow: 0 0 20px #4caf50;
+    /* text-shadow: 0 0 5px #fff, 0 0 15px #6bc56e, 0 0 30px #81c784; */
+    
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Space between menu items */
+    margin: 0;
+}
+
+/* Modified navbar-button to match info section style */
+.navbar-button {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(76, 175, 80, 0.2); /* Light green with opacity */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #4caf50;
+    background: rgba(76, 175, 80, 0.3); /* Match the info-box color */
+}
+
+.navbar-button:hover {
+    background-color: rgba(76, 175, 80, 0.4); /* Slightly darker green on hover */
+    color: #000;
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 0 30px #81c784; /* Brighter shadow on hover */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #4caf50;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Default size */
+    width: auto;
+    border-radius: 8px; /* Optional for rounded edges */
+    box-shadow: 0 0 10px #4caf50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation for scaling and shadow */
+}
+
+.logo img:hover {
+    transform: scale(1.2); /* Increase size by 20% */
+    box-shadow: 0 0 20px #81c784; /* Brighter shadow on hover */
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.3), rgba(0, 0, 0, 1));
+    border-bottom: 3px solid #4caf50;
+}
+
+.hero-section h1 {
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #4caf50;
+}
+
+.input-field {
+    width: 400px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px #4caf50;
+}
+
+.submit-btn {
+    background-color: #4caf50;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #4caf50;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #81c784;
+}
+
+/* Info Section */
+/* Info Section */
+.info-section {
+    font-family: 'Lexend', sans-serif;
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    padding: 20px 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.info-box {
+    font-family: 'Lexend', sans-serif;
+    text-align: left; /* Align text to the left */
+    padding: 50px;
+    border-radius: 10px;
+    background: rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 20px #4caf50;
+    width: 100%; /* Full width */
+    margin: 0; /* Remove auto-centering */
+}
+
+.info-box h2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 28px;
+    /* padding: 20px; */
+    /* font-weight: bold; */
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #4caf50;
+}
+
+.info-box p {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    color: #d3ffd6;
+    line-height: 1.6;
+}
+
+/* True News Box */
+.true-news-box {
+    font-family: 'Lexend', sans-serif;
+    text-align: left; /* Align text to the left */
+    padding: 30px;
+    border-radius: 10px;
+    background: rgba(30, 136, 229, 0.2); /* Light blue for differentiation */
+    box-shadow: 0 0 20px #1e88e5;
+    width: 100%; /* Full width */
+    margin: 20px 0; /* Add spacing between boxes */
+}
+
+.true-news-box h2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 28px;
+    /* font-weight: bold; */
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #1e88e5;
+}
+
+.true-news-box p {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    color: #d0e7ff;
+    line-height: 1.6;
+}
+
+/* Fake News Quiz Section */
+/* Fake News Quiz Section */
+.fake-news-quiz-section {
+    font-family: 'Lexend', sans-serif;
+    padding: 20px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    /* margin-top: 40px; */
+    width: 100%;
+}
+
+/* Heading Style */
+.fake-news-quiz-section .section-heading {
+    font-family: 'Lexend', sans-serif;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px #4caf50;
+}
+
+/* Container for the Quiz */
+.quiz-container {
+    font-family: 'Lexend', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px; /* Control maximum width for better readability */
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Quiz Question Styling */
+.quiz-question {
+    font-family: 'Lexend', sans-serif;
+    background: rgba(76, 175, 80, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #4caf50;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left; /* Left-align the content */
+    margin-top: 20px;
+}
+
+/* Question Text Styling */
+.quiz-question p {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: left; /* Align question text to the left */
+}
+
+/* Label Styling for Radio Buttons */
+.quiz-question label {
+    font-family: 'Lexend', sans-serif;
+    display: block;
+    font-size: 16px;
+    color: #fff;
+    margin: 10px 0;
+    cursor: pointer;
+    text-align: left; /* Ensure labels are left-aligned */
+}
+
+/* Radio Button Styling */
+.quiz-question input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Submit Button Styling */
+.submit-quiz-btn {
+    font-family: 'Lexend', sans-serif;
+    background-color: #4caf50;
+    color: #000;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px #4caf50;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 20px;
+    width: 100%; /* Make the button span the full width of the container */
+    box-sizing: border-box; /* Ensure button doesn't overflow */
+}
+
+.submit-quiz-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #81c784;
+    background-color:rgb(0, 139, 44);
+}
+
+
+#answer-list {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#answer-list li {
+    font-family: 'Lexend', sans-serif;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+#answer-list strong {
+    font-family: 'Lexend', sans-serif;
+    /* font-weight: bold; */
+}
+
+
+
+
+
+
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 400px;
+    background: url('{{ url_for("static", filename="background.png") }}') no-repeat center center/cover;
+    padding: 20px;
+    border-bottom: 3px solid #4caf50;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+.quote-text {
+    font-family: 'Lexend', sans-serif;
+    /* font-weight: 400; */
+    /* padding: 20px; */
+    /* margin-top: 250px; */
+    margin-right: 50px;
+    max-width: 50%;
+    text-align: right;
+}
+
+.quote-text h1 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px #4caf50;
+}
+
+.quote-text p {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+/* Main Section */
+main {
+    flex: 1; /* Expands to fill available space */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #4caf50;
+    box-shadow: 0 0 20px #4caf50;
+    width: 100%;
+}

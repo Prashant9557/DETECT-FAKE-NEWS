@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Investigative News Logo">
+        </div>
+        
+        <!-- Centered Animated Text (Optional) -->
+        <div class="nav-center">
+            Behind the Investigation
+        </div>
+    
+        <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}" class="navbar-button">HOME</a></li>
+                <li><a href="{{ url_for('about') }}" class="navbar-button">ABOUT US</a></li>
+                <li><a href="{{ url_for('prediction') }}" class="navbar-button">PREDICTION</a></li>
+                <li><a href="{{ url_for('contact') }}" class="navbar-button">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Who we are</h1>
+                <p>We are a team of dedicated and creative individuals, driven by passion and a commitment to excellence. We believe in working with positivity, integrity, and authenticity in every project we undertake. Our collective effort is focused on delivering innovative solutions that not only meet but exceed expectations, ensuring the success of both our team and clients.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission">
+            <div class="text">
+                <h2>Our Mission</h2>
+                <p>At Fake News Detector, we believe the internet should be a space for truth and transparency. Our mission is to empower users to detect and combat misinformation using innovative AI tools and community collaboration.</p>
+                <p>We strive to create a more informed online world where everyone can make decisions based on accurate and verified content.</p>
+            </div>
+            <div class="image">
+                <img src="{{ url_for('static', filename='ourmission.jpg') }}" alt="Our Mission">
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story">
+            <div class="image">
+                <img src="{{ url_for('static', filename='ourstory.jpg') }}" alt="Our Story">
+            </div>
+            <div class="text">
+                <h2>Our Story</h2>
+                <p>Founded by passionate individuals, Fake News Detector was born out of a desire to make online spaces more reliable. With a focus on ethical AI, we've built tools that empower users to make informed decisions.</p>
+                <p>Our journey started with a simple idea: to provide everyone with tools that ensure accountability in digital content. Today, we continue to expand this mission worldwide.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Fake News Detector. All rights reserved.</p>
+    </footer>
+</body>
+</html>

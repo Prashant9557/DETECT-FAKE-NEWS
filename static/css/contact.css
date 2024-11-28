@@ -1,0 +1,358 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height for layout */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Flexbox layout for body */
+    min-height: 100vh; /* Full viewport height */
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Spread content between left and right */
+    align-items: center; /* Align items vertically */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px #4caf50; /* Green shadow effect */
+    position: relative;
+}
+
+/* Positioning the Navbar Centered Text */
+.nav-center {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%); /* Center the text horizontally and vertically */
+    font-size: 32px;
+    /* font-weight: bold; */
+    color: #deeedf; /* Light green text */
+    /* text-shadow: 0 0 5px #fff, 0 0 15px #4caf50, 0 0 30px #81c784; */
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+/* Navbar Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Space between menu items */
+    margin: 0;
+}
+
+/* Navbar Button Styling */
+.navbar-button {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    color: #fff;
+    background-color: rgba(76, 175, 80, 0.2); /* Light green with opacity */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px #4caf50;
+    background: rgba(76, 175, 80, 0.3); /* Match the info-box color */
+}
+
+.navbar-button:hover {
+    background-color: rgba(76, 175, 80, 0.4); /* Slightly darker green on hover */
+    color: #000;
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 0 30px #81c784; /* Brighter shadow on hover */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* Default text color */
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s; /* Smooth transition for color */
+}
+
+/* Menu Item Hover Effect */
+nav ul li a:hover {
+    color: #4caf50; /* Change color to green on hover */
+}
+
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Default size */
+    width: auto;
+    border-radius: 8px; /* Rounded edges */
+    box-shadow: 0 0 10px #4caf50; /* Green shadow for effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for scaling and shadow */
+}
+
+.logo img:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+    box-shadow: 0 0 20px #81c784; /* Brighter shadow when hovered */
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.3), rgba(0, 0, 0, 1));
+    border-bottom: 3px solid #4caf50;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #4caf50;
+}
+
+.hero-section h1 {
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #4caf50;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns all elements to the center */
+    gap: 20px; /* Adds consistent spacing between fields */
+    margin-top: 20px; /* Adds some top margin for better spacing */
+}
+
+/* Input Fields */
+.input-field,
+.textarea-field {
+    width: 400px; /* Matches the width */
+    height: 50px; /* Matches the height */
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px #4caf50;
+    resize: none; /* Prevents resizing for textarea */
+}
+
+
+/* Feedback Message Styling */
+.result-message {
+    width: 400px; /* Matches the input field width */
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #4caf50;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background color */
+    color: #fff;
+    text-align: center;
+    display: none; /* Initially hidden, shown after submission */
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #4caf50;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #4caf50;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.submit-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #81c784;
+}
+
+/* Info Section */
+.info-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.info-box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(76, 175, 80, 0.2);
+    box-shadow: 0 0 20px #4caf50;
+    width: 300px;
+}
+
+.info-box h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 10px #4caf50;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Main Section */
+main {
+    flex: 1; /* Expands to fill available space */
+}
+
+.social-media {
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 24px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media a:hover {
+    transform: scale(1.2);
+    color: #4caf50;
+}
+.map-section {
+    margin: 20px 0;
+    border: 3px solid #4caf50;
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%;
+}
+
+.faq-section {
+    text-align: left;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+details {
+    margin-bottom: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+
+details summary {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+details p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #81c784;
+}
+
+.contact-numbers {
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+
+.newsletter {
+    border-radius: 10px; /* Rounded corners */
+    background: rgba(76, 175, 80, 0.2); /* Greenish semi-transparent background */
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.7); /* Green shadow around the section */
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+
+.newsletter h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+
+#newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.result-message {
+    margin-top: 20px;
+    color: #4caf50;
+    font-size: 18px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+    text-shadow: 0 0 20px #4caf50;
+    letter-spacing: 1px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #4caf50;
+    box-shadow: 0 0 20px #4caf50;
+    width: 100%;
+}

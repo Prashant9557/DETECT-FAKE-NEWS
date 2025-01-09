@@ -23,7 +23,7 @@
           <ul>
             <li><a href="{{ url_for('home') }}" class="navbar-button">HOME</a></li>
             <li><a href="{{ url_for('about') }}" class="navbar-button">ABOUT US</a></li>
-            <li><a href="{{ url_for('prediction') }}" class="navbar-button">PREDICTION</a></li>
+            <li><a href="{{ url_for('predict') }}" class="navbar-button">PREDICTION</a></li>
             <li><a href="{{ url_for('contact') }}" class="navbar-button">CONTACT US</a></li>
           </ul>
         </nav>
@@ -175,8 +175,8 @@
         // Helper function to get the answer text from the correct answer value
         function getAnswerText(answer) {
             const answers = {
-                a: 'A social media post from a random account',
-                b: 'A verified news organization like BBC, Reuters',
+                a: 'A verified news organization like BBC, Reuters',
+                b: 'Check the source and verify the information',
                 c: 'Both a and b',
             };
     

@@ -1,18 +1,31 @@
 body {
-    font-family: Arial, sans-serif;
-    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #000;
+    width: 400px; /* Set a specific width for the box */
+    height: auto; /* Adjusts automatically based on content */
+    margin: 0 auto; /* Centers the content within the popup */
+    box-sizing: border-box;
+    box-shadow: 0 0 20px #4caf50; /* Add box shadow similar to the large boxes */
+    border-radius: 10px; /* Rounded corners */
 }
 
 h1 {
-    color: #333;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #4caf50; /* Glowing effect */
 }
 
 input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 10px #4caf50; /* Inner shadow */
 }
 
 button {
@@ -21,13 +34,23 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    box-shadow: 0 0 20px #4caf50;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: rgba(76, 175, 80, 0.8); /* Slightly darker green on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 0 30px #81c784; /* Brighter shadow on hover */
 }
 
 #result {
     margin-top: 20px;
     font-size: 1rem;
+    color: #d3ffd6;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #4caf50;
 }

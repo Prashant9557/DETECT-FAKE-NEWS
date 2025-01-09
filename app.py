@@ -13,10 +13,10 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 # Load models and vectorizer
 try:
     vectorizer = joblib.load("tfidf_vectorizer.pkl")
-    log_reg_model = joblib.load("logistic_regression_model.pkl")
-    gb_model = joblib.load("gradient_boosting_model.pkl")
-    rf_model = joblib.load("random_forest_model.pkl")
-    nb_model = joblib.load("naive_bayes_model.pkl")
+    log_reg_model = joblib.load("log_reg_model.pkl")
+    gb_model = joblib.load("gb_model.pkl")
+    rf_model = joblib.load("rf_model.pkl")
+    nb_model = joblib.load("nb_model.pkl")
 except Exception as e:
     raise Exception(f"Failed to load models or vectorizer: {str(e)}")
 
@@ -103,4 +103,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
+    app.run(debug=True)

@@ -1,16 +1,22 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template, jsonify
+from flask_cors import CORS
 import joblib
 from newspaper import Article
 import numpy as np
 
+# Initialize the Flask app
+app = Flask(__name__)
+
+# Enable CORS (Cross-Origin Resource Sharing)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Load models and vectorizer
 try:
     vectorizer = joblib.load("tfidf_vectorizer.pkl")
-    log_reg_model = joblib.load("logistic_regression_model.pkl")
-    gb_model = joblib.load("gradient_boosting_model.pkl")
-    rf_model = joblib.load("random_forest_model.pkl")
-    nb_model = joblib.load("naive_bayes_model.pkl")
+    log_reg_model = joblib.load("log_reg_model.pkl")
+    gb_model = joblib.load("gb_model.pkl")
+    rf_model = joblib.load("rf_model.pkl")
+    nb_model = joblib.load("nb_model.pkl")
 except Exception as e:
     raise Exception(f"Failed to load models or vectorizer: {str(e)}")
 
@@ -19,9 +25,6 @@ model_accuracies = [0.9717, 0.9811, 0.9780, 0.9230]
 
 # Normalize weights
 normalized_weights = np.array(model_accuracies) / sum(model_accuracies)
-
-# Flask app
-app = Flask(__name__)
 
 @app.route("/")
 def home():
@@ -39,15 +42,19 @@ def prediction():
 def contact():
     return render_template("contact.html")
 
-@app.route("/predict", methods=["POST"])
+@app.route("/prediction", methods=["POST"])
 def predict():
     try:
-        # Validate input
-        data = request.json
-        if not data or "url" not in data:
-            return jsonify({"error": "Invalid input. Please provide a JSON payload with a 'url' key."}), 400
-        
-        url = data.get("url")
+        # Identify if the request is from Chrome extension
+        source = request.headers.get("X-Source", "unknown")
+        if source == "chrome-extension":
+            print("Received request from Chrome extension.")
+        # Extract URL from JSON body (for AJAX)
+        data = request.get_json()
+        url = data.get("url", "").strip()
+
+        if not url:
+            return jsonify({"error": "Please provide a valid URL."}), 400
 
         # Extract and preprocess text from URL
         try:
@@ -56,9 +63,9 @@ def predict():
             article.parse()
             text = article.text.strip()
             if not text:
-                raise ValueError("Article text is empty.")
+                raise ValueError("The article contains no text.")
         except Exception as e:
-            return jsonify({"error": f"Failed to extract article text: {str(e)}"}), 500
+            return jsonify({"error": f"Failed to extract article text: {str(e)}"}), 400
 
         # Vectorize the text
         text_vectorized = vectorizer.transform([text])
@@ -76,20 +83,24 @@ def predict():
 
         # Calculate weighted average of probabilities
         weighted_avg_prob = sum(prob * weight for prob, weight in zip(model_probabilities, normalized_weights))
-        confidence = weighted_avg_prob  # Confidence score for the prediction
+        confidence = round(weighted_avg_prob * 100, 2)  # Confidence percentage
         final_prediction = "Real" if weighted_avg_prob > 0.5 else "Fake"
 
+        # Return the prediction results
         return jsonify({
-            "url": url,
             "prediction": final_prediction,
-            "confidence_score": round(confidence * 100, 2),  # Confidence percentage
-            "model_predictions": {
-                model_name: round(prob, 4) for model_name, prob in zip(models.keys(), model_probabilities)
+            "confidence_score": confidence,
+            "model_scores": {
+                "Logistic Regression": round(model_probabilities[0] * 100, 2),
+                "Gradient Boosting": round(model_probabilities[1] * 100, 2),
+                "Random Forest": round(model_probabilities[2] * 100, 2),
+                "Naive Bayes": round(model_probabilities[3] * 100, 2),
             }
         })
-    
+
     except Exception as e:
         return jsonify({"error": f"An unexpected error occurred: {str(e)}"}), 500
+
 
 if __name__ == "__main__":
     app.run(debug=True)
